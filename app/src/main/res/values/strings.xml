@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Pharma</string>
+
+
+    <!--Validation-->
+    <string name="phone_empty_validation">Please enter phone number</string>
+    <string name="phone_valid_validation">Please enter valid phone number</string>
+    <string name="internet_error">Please check your internet connection and try again.</string>
+    <string name="response_null_or_empty_validation">Response is null or empty.</string>
+    <string name="exit_message">Are you sure you want to exit?</string>
+    <string name="logout_message">Are you sure you want to logout?</string>
+    <string name="cancel">Cancel</string>
+    <string name="ok">OK</string>
+    <string name="guest_user_login_message">You are login as guest,Please login for this.</string>
+
+    <!--Otp-->
+    <string name="otp_text">We have send an OTP to your Mobile number</string>
+    <string name="otp_phone_no_text">Please check your mobile number 978*****12 to continue</string>
+    <string name="next">Next</string>
+    <string name="don_t_receive">Don\'t Receive? Resend</string>
+    <string name="verification_id">verification_id</string>
+    <string name="phone_number">phone_number</string>
+    <string name="country_code">country_code</string>
+    <string name="bundle">bundle</string>
+    <string name="otp_phone_text_format">%s%s%s</string>
+    <string name="dynamic_value_set_format">%s%s%s</string>
+    <string name="login_display_text"><![CDATA[By tapping Verify Phone Number, an SMS may be sent. Message & data rates may apply]]></string>
+    <string name="dummy_donation_text">A donation may take various forms, including money, alms, services, or goods such as clothing, toys, food, or vehicles. such as blood or organs for transplant.</string>
+    <string name="beauty_fashion"><![CDATA[BEAUTY & FASHION]]></string>
+</resources>
