@@ -176,11 +176,11 @@ class Communicator {
         })
     }
 
-    fun get(reqCode : Int,context : Activity,url : String,params: RequestParams,responseListener : CustomResponseListener){
+    fun get(reqCode : Int,context : Activity,url : String, params: RequestParams,responseListener : CustomResponseListener){
         val client = AsyncHttpClient()
         client.setTimeout(5 * 60000)
         client.responseTimeout = 5 * 60000
-        client.get(context,url,object : AsyncHttpResponseHandler(){
+        client.get(context, url, params, object : AsyncHttpResponseHandler(){
             override fun onSuccess(
                 statusCode: Int,
                 headers: Array<out Header>?,

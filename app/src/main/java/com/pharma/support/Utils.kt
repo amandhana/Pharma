@@ -194,6 +194,14 @@ class Utils {
             imm.hideSoftInputFromWindow(view.windowToken, 0)
         }
 
+        fun showKeyboard(context: Activity) {
+            val imm = context.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+            var view = context.currentFocus
+            if (view == null)
+                view = View(context)
+            imm.showSoftInput(view, 0)
+        }
+
         fun isNetworkAvailable(context: Activity): Boolean {
             val connectivityManager =
                 context.getSystemService(Activity.CONNECTIVITY_SERVICE) as ConnectivityManager

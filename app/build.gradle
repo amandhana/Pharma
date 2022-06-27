@@ -57,11 +57,11 @@ dependencies {
     implementation 'cc.cloudist.acplibrary:library:1.2.1' // progress loader
     /*Initial Library*/
     /*Retrofit*/
-    implementation ('com.squareup.retrofit2:retrofit:2.7.1') {
+    implementation ('com.squareup.retrofit2:retrofit:2.9.0') {
         exclude module: 'okhttp'
     }
     implementation 'com.squareup.retrofit2:converter-simplexml:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     /*Retrofit*/
 
     implementation 'com.github.aabhasr1:OtpView:v1.1.2' // otp

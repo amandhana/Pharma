@@ -3,8 +3,8 @@ package com.agot.api
 
 class Constants {
     companion object{
-        private const val BASE_URL_DOMAIN = "http://agot.onepixelsoft.com/"
-        val BASE_URL = BASE_URL_DOMAIN + "api/"
+        private const val BASE_URL_DOMAIN = "http://www.shoponn.co.in/customer/"
+        const val BASE_URL = BASE_URL_DOMAIN + "api/"
     }
     object AppSaveData {
     }
@@ -17,7 +17,9 @@ class Constants {
         const val DEVICE_TOKEN = "device_token"
     }
     object Apis {
+        val GETCUSTOMERID = BASE_URL + "getMaxCustomerID"
         val LOGIN = BASE_URL + "login"
+        val REGISTER = BASE_URL + "signupNewUser"
 
     }
 

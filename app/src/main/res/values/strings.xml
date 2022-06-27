@@ -27,4 +27,17 @@
     <string name="login_display_text"><![CDATA[By tapping Verify Phone Number, an SMS may be sent. Message & data rates may apply]]></string>
     <string name="dummy_donation_text">A donation may take various forms, including money, alms, services, or goods such as clothing, toys, food, or vehicles. such as blood or organs for transplant.</string>
     <string name="beauty_fashion"><![CDATA[BEAUTY & FASHION]]></string>
+    <string name="text_first_name">First Name</string>
+    <string name="text_mobile_number">Mobile Number</string>
+    <string name="text_verify_phone_number">Verify Phone Number</string>
+    <string name="text_sign_up">Sign Up</string>
+    <string name="text_welcome">Welcome!</string>
+    <string name="text_last_name">Last Name</string>
+    <string name="text_email">Email</string>
+    <string name="text_password">Password</string>
+    <string name="text_confirm_password">Confirm Password</string>
+    <string name="text_already_have_account">Already have an Account? Login</string>
+    <string name="text_create_a_account">Create New Account? Register</string>
+    <string name="text_username">Username</string>
+    <string name="text_log_in">Log In</string>
 </resources>

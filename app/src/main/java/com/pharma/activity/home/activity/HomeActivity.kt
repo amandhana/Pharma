@@ -36,10 +36,6 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         init()
     }
 
-    override fun onResume() {
-        super.onResume()
-    }
-
     override fun onBackPressed() {
         val fragmentList = supportFragmentManager.fragments
         if (fragmentList.size > 0) {
