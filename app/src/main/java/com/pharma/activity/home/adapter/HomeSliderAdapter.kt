@@ -14,21 +14,21 @@ import com.pharma.support.Utils
 
 class HomeSliderAdapter(
     context: Activity,
-    // homePageBanner: List<HomePageBanner>
+     homePageBanner: List<HomePageBanner?>?
 ) : PagerAdapter() {
 
     var context: Activity? = null
-    // var homePageBanner: List<HomePageBanner>? = null
+     var homePageBanner: List<HomePageBanner?>? = null
     var layoutInflater: LayoutInflater? = null
 
     init {
         this.context = context
-        // this.homePageBanner = homePageBanner
+         this.homePageBanner = homePageBanner
         layoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
     }
 
     override fun getCount(): Int {
-        return 3
+        return homePageBanner?.size!!
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -39,10 +39,10 @@ class HomeSliderAdapter(
         val itemView: View =
             layoutInflater!!.inflate(R.layout.item_home_auto_scroll, viewHolder, false)
         val imageView = itemView.findViewById<ImageView>(R.id.iv_home_slider_image)
-        /*homePageBanner?.let {
-            Utils.setProfileImageUsingGlide(context, homePageBanner?.get(position)?.url, imageView)
-        }*/
-        when (position) {
+        homePageBanner?.let {
+            Utils.setImageUsingGlide(context, homePageBanner?.get(position)?.url, imageView)
+        }
+        /*when (position) {
             0 -> {
                 imageView.setBackgroundResource(R.drawable.slide_1)
             }
@@ -52,7 +52,7 @@ class HomeSliderAdapter(
             2 -> {
                 imageView.setBackgroundResource(R.drawable.banner_2)
             }
-        }
+        }*/
         viewHolder.addView(itemView)
         return itemView
     }

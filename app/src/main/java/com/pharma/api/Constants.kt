@@ -6,7 +6,7 @@ class Constants {
         const val BASE_URL_DOMAIN = "https://www.shoponn.co.in/"
         const val BASE_URL_CUSTOMER = BASE_URL_DOMAIN + "customer/api/"
         const val BASE_URL_PROMOTION = BASE_URL_DOMAIN + "promotion/api/"
-        const val BASE_URL_MASTERMENU = BASE_URL_DOMAIN + "mastermenu/api/"
+        const val BASE_URL_MASTERMENU = BASE_URL_DOMAIN + "mastermenu/get/api/"
         const val BASE_URL_ORDER = BASE_URL_DOMAIN + "order/api/"
         const val BASE_URL_WISHLIST = BASE_URL_DOMAIN + "wishlist/api/"
         const val BASE_URL_PRODUCT = BASE_URL_DOMAIN + "product/"
@@ -28,6 +28,8 @@ class Constants {
         val REGISTER = BASE_URL_CUSTOMER + "signupNewUser"
         val GETHOMEPAGEBANNERDETAILS = BASE_URL_PROMOTION + "get/getHomePageBannerDetails"
         val NEWLYLAUNCHED = BASE_URL_PRODUCT + "get/api/newlylaunched"
+        val GETCATEGORYOFELECTRONICS = BASE_URL_MASTERMENU + "getCategoryOfElectronics"
+        val GETCATEGORYOFBEAUTY = BASE_URL_MASTERMENU + "getCategoryOfBeauty"
 
     }
 

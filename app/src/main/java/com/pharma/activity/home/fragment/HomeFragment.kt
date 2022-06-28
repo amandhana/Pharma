@@ -16,6 +16,8 @@ import androidx.viewpager2.widget.ViewPager2
 import com.pharma.R
 import com.pharma.activity.home.activity.HomeActivity
 import com.pharma.activity.home.adapter.*
+import com.pharma.activity.home.model.BeautyCategoryResponse
+import com.pharma.activity.home.model.ElectronicsCategoryResponse
 import com.pharma.activity.home.model.HomePageBanner
 import com.pharma.activity.home.model.HomePageBannerDetailsResponse
 import com.pharma.api.Communicator
@@ -79,6 +81,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         setUpFmcg()
         setUpBestDeals()
         setUpElectronics()
+        setUpBeauty()
     }
 
     private fun setUpClickListener() {
@@ -87,7 +90,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
     private fun setUpHomeSlider() {
         /*Android Banner Data*/
-        /*if (mActivity?.let { Utils.isNetworkAvailable(it) } == true) {
+        if (mActivity?.let { Utils.isNetworkAvailable(it) } == true) {
             progressDialog.setMessage("Loading...")
             progressDialog.setCancelable(false)
             progressDialog.setCanceledOnTouchOutside(false)
@@ -103,15 +106,25 @@ class HomeFragment : Fragment(), View.OnClickListener {
                                 Utils.getObject(response, HomePageBannerDetailsResponse::class.java)
                                         as HomePageBannerDetailsResponse
                             if (!modelResponse.error!!) {
-                                if (modelResponse.homePageBanner != null) {
-                                    modelResponse.homePageBanner!!.forEach {
-                                        homePageBanner = homePageBanner?.plus(
-                                            HomePageBanner(
-                                                it?.alternateText,
-                                                it?.bannerID, it?.imgPath, it?.url
-                                            )
-                                        )
-                                    }
+                                if (modelResponse.homePageBanner != null &&
+                                    modelResponse.homePageBanner?.size!! > 0) {
+
+                                    binding!!.autoScrollViewpager.adapter = HomeSliderAdapter(
+                                        mActivity!!,
+                                        modelResponse.homePageBanner
+                                    )
+                                    binding!!.pageIndicatorView.attachTo(binding!!.autoScrollViewpager)
+                                    binding!!.autoScrollViewpager.offscreenPageLimit = 1
+                                    val nextItemVisiblePx = 26
+                                    val currentItemHorizontalMarginPx = 42
+                                    val pageTranslationX =
+                                        nextItemVisiblePx + currentItemHorizontalMarginPx
+                                    val pageTransformer =
+                                        ViewPager2.PageTransformer { page: View, position: Float ->
+                                            page.translationX = -pageTranslationX * position
+                                            page.scaleY =
+                                                1 - (0.25f * kotlin.math.abs(position))
+                                        }
                                 }
                             }
                         }
@@ -129,22 +142,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
                     resources.getString(R.string.internet_error)
                 )
             }
-        }*/
+        }
         /*Android Banner Data*/
-
-        binding!!.autoScrollViewpager.adapter =HomeSliderAdapter(mActivity!!)
-        binding!!.pageIndicatorView.attachTo(binding!!.autoScrollViewpager)
-        binding!!.autoScrollViewpager.offscreenPageLimit = 1
-        val nextItemVisiblePx = 26
-        val currentItemHorizontalMarginPx = 42
-        val pageTranslationX =
-            nextItemVisiblePx + currentItemHorizontalMarginPx
-        val pageTransformer =
-            ViewPager2.PageTransformer { page: View, position: Float ->
-                page.translationX = -pageTranslationX * position
-                page.scaleY =
-                    1 - (0.25f * kotlin.math.abs(position))
-            }
     }
 
     private fun startAutoScrollViewPager() {
@@ -215,13 +214,106 @@ class HomeFragment : Fragment(), View.OnClickListener {
 
 
     private fun setUpElectronics() {
-        binding!!.recyclerViewElectronics.layoutManager =
-            LinearLayoutManager(
-                mActivity,
-                RecyclerView.HORIZONTAL,
-                false
-            )
-        binding!!.recyclerViewElectronics.adapter = HomeElecrtonicsAdapter(mActivity!!)
+        if (mActivity?.let { Utils.isNetworkAvailable(it) } == true) {
+            progressDialog.setMessage("Loading...")
+            progressDialog.setCancelable(false)
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+            val communicator = Communicator()
+            communicator.get(101, mActivity!!, Constants.Apis.GETCATEGORYOFELECTRONICS,
+                object : CustomResponseListener {
+                    override fun onResponse(requestCode: Int, response: String?) {
+                        progressDialog.dismiss()
+                        Log.e(TAG, "onResponse: $response")
+                        if (response != null && response.isNotEmpty()) {
+                            val modelResponse: ElectronicsCategoryResponse =
+                                Utils.getObject(response, ElectronicsCategoryResponse::class.java)
+                                        as ElectronicsCategoryResponse
+                            if (!modelResponse.error!!) {
+                                if (modelResponse.categoryResponse != null &&
+                                    modelResponse.categoryResponse?.size!! > 0) {
+                                    binding!!.recyclerViewElectronics.layoutManager =
+                                        LinearLayoutManager(
+                                            mActivity,
+                                            RecyclerView.HORIZONTAL,
+                                            false
+                                        )
+                                    binding!!.recyclerViewElectronics.adapter =
+                                        HomeElectronicsAdapter(
+                                            mActivity!!,
+                                            modelResponse.categoryResponse
+                                        )
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(statusCode: Int, error: Throwable?) {
+                        progressDialog.dismiss()
+                        Log.e(TAG, "onFailure: $error")
+                    }
+
+                })
+
+        } else
+            mActivity?.let {
+                Utils.showToastPopup(
+                    it,
+                    resources.getString(R.string.internet_error)
+                )
+            }
+    }
+
+
+    private fun setUpBeauty() {
+        if (mActivity?.let { Utils.isNetworkAvailable(it) } == true) {
+            progressDialog.setMessage("Loading...")
+            progressDialog.setCancelable(false)
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+            val communicator = Communicator()
+            communicator.get(101, mActivity!!, Constants.Apis.GETCATEGORYOFBEAUTY,
+                object : CustomResponseListener {
+                    override fun onResponse(requestCode: Int, response: String?) {
+                        progressDialog.dismiss()
+                        Log.e(TAG, "onResponse: $response")
+                        if (response != null && response.isNotEmpty()) {
+                            val modelResponse: BeautyCategoryResponse =
+                                Utils.getObject(response, BeautyCategoryResponse::class.java)
+                                        as BeautyCategoryResponse
+                            if (!modelResponse.error!!) {
+                                if (modelResponse.categoryResponse != null &&
+                                    modelResponse.categoryResponse?.size!! > 0) {
+                                    binding!!.recyclerViewBeautyFashion.layoutManager =
+                                        LinearLayoutManager(
+                                            mActivity,
+                                            RecyclerView.HORIZONTAL,
+                                            false
+                                        )
+                                    binding!!.recyclerViewBeautyFashion.adapter =
+                                        HomeBeautyAdapter(
+                                            mActivity!!,
+                                            modelResponse.categoryResponse
+                                        )
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(statusCode: Int, error: Throwable?) {
+                        progressDialog.dismiss()
+                        Log.e(TAG, "onFailure: $error")
+                    }
+
+                })
+
+        } else
+            mActivity?.let {
+                Utils.showToastPopup(
+                    it,
+                    resources.getString(R.string.internet_error)
+                )
+            }
     }
 
 

@@ -1,21 +1,23 @@
 package com.pharma.activity.home.adapter
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pharma.R
+import com.pharma.activity.home.model.CategoryResponse
 import com.pharma.databinding.ItemElectronicsHomeBinding
-import com.pharma.databinding.ItemFmcgHomeBinding
 
-internal class HomeElecrtonicsAdapter(context: Activity) :
-    RecyclerView.Adapter<HomeElecrtonicsAdapter.ViewHolder>() {
+internal class HomeBeautyAdapter(context: Activity, categories: List<CategoryResponse?>?) :
+    RecyclerView.Adapter<HomeBeautyAdapter.ViewHolder>() {
+
     var context: Activity? = null
+    private var categories: List<CategoryResponse?>? = null
     var binding: ItemElectronicsHomeBinding? = null
 
     init {
         this.context = context
+        this.categories = categories
     }
 
     override fun onCreateViewHolder(
@@ -29,39 +31,33 @@ internal class HomeElecrtonicsAdapter(context: Activity) :
 
     override fun onBindViewHolder(
         viewHolder: ViewHolder,
-        @SuppressLint("RecyclerView") position: Int
+        position: Int
     ) {
-        when (position) {
-            0 -> {
-                binding!!.ivElectronicsImage.setBackgroundResource(R.drawable.electronics_1)
-                binding!!.tvElectronicsName.text = "Bakery"
-            }
-            1 -> {
+        binding!!.ivElectronicsImage.setBackgroundResource(R.drawable.cat_5)
+        binding!!.tvElectronicsName.text = categories?.get(position)?.category
+        /*when (categories?.get(position)?.category) {
+            "GAMING" -> {
                 binding!!.ivElectronicsImage.setBackgroundResource(R.drawable.electronics_3)
-                binding!!.tvElectronicsName.text = "Beverages"
+                binding!!.tvElectronicsName.text = categories?.get(position)?.category
             }
-            2 -> {
+            "APPLIANCES" -> {
                 binding!!.ivElectronicsImage.setBackgroundResource(R.drawable.electronics_1)
-                binding!!.tvElectronicsName.text = "Cooking Oil"
+                binding!!.tvElectronicsName.text = categories?.get(position)?.category
             }
-            3 -> {
+            "COMPUTERS & PERIPHERALS" -> {
                 binding!!.ivElectronicsImage.setBackgroundResource(R.drawable.electronics_3)
-                binding!!.tvElectronicsName.text = "Electronics"
+                binding!!.tvElectronicsName.text = categories?.get(position)?.category
             }
-            4 -> {
-                binding!!.ivElectronicsImage.setBackgroundResource(R.drawable.electronics_1)
-                binding!!.tvElectronicsName.text = "Fashion"
-            }
-            5 -> {
+            "TVs, AUDIO & VIDEO" -> {
                 binding!!.ivElectronicsImage.setBackgroundResource(R.drawable.electronics_3)
-                binding!!.tvElectronicsName.text = "Music"
+                binding!!.tvElectronicsName.text = categories?.get(position)?.category
             }
-        }
+        }*/
     }
 
 
     override fun getItemCount(): Int {
-        return 6
+        return categories?.size!!
     }
 
     class ViewHolder(binding: ItemElectronicsHomeBinding) : RecyclerView.ViewHolder(binding.root)
