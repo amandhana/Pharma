@@ -28,6 +28,7 @@ class Constants {
         val REGISTER = BASE_URL_CUSTOMER + "signupNewUser"
         val GETHOMEPAGEBANNERDETAILS = BASE_URL_PROMOTION + "get/getHomePageBannerDetails"
         val NEWLYLAUNCHED = BASE_URL_PRODUCT + "get/api/newlylaunched"
+        val DEALOFTHEDAY = BASE_URL_PRODUCT + "get/api/dealoftheday"
         val GETCATEGORYOFELECTRONICS = BASE_URL_MASTERMENU + "getCategoryOfElectronics"
         val GETCATEGORYOFBEAUTY = BASE_URL_MASTERMENU + "getCategoryOfBeauty"
 

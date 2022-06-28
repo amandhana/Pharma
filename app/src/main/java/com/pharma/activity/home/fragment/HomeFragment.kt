@@ -16,10 +16,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.pharma.R
 import com.pharma.activity.home.activity.HomeActivity
 import com.pharma.activity.home.adapter.*
-import com.pharma.activity.home.model.BeautyCategoryResponse
-import com.pharma.activity.home.model.ElectronicsCategoryResponse
-import com.pharma.activity.home.model.HomePageBanner
-import com.pharma.activity.home.model.HomePageBannerDetailsResponse
+import com.pharma.activity.home.model.*
 import com.pharma.api.Communicator
 import com.pharma.api.Constants
 import com.pharma.api.CustomResponseListener
@@ -100,14 +97,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 object : CustomResponseListener {
                     override fun onResponse(requestCode: Int, response: String?) {
                         progressDialog.dismiss()
-                        Log.e(TAG, "onResponse: $response")
                         if (response != null && response.isNotEmpty()) {
                             val modelResponse: HomePageBannerDetailsResponse =
                                 Utils.getObject(response, HomePageBannerDetailsResponse::class.java)
                                         as HomePageBannerDetailsResponse
                             if (!modelResponse.error!!) {
                                 if (modelResponse.homePageBanner != null &&
-                                    modelResponse.homePageBanner?.size!! > 0) {
+                                    modelResponse.homePageBanner?.size!! > 0
+                                ) {
 
                                     binding!!.autoScrollViewpager.adapter = HomeSliderAdapter(
                                         mActivity!!,
@@ -203,13 +200,54 @@ class HomeFragment : Fragment(), View.OnClickListener {
     }
 
     private fun setUpBestDeals() {
-        binding!!.recyclerViewBestDeals.layoutManager =
-            LinearLayoutManager(
-                mActivity,
-                RecyclerView.HORIZONTAL,
-                false
-            )
-        binding!!.recyclerViewBestDeals.adapter = HomeBestDealsAdapter(mActivity!!)
+        if (mActivity?.let { Utils.isNetworkAvailable(it) } == true) {
+            progressDialog.setMessage("Loading...")
+            progressDialog.setCancelable(false)
+            progressDialog.setCanceledOnTouchOutside(false)
+            progressDialog.show()
+            val communicator = Communicator()
+            communicator.get(101, mActivity!!, Constants.Apis.DEALOFTHEDAY,
+                object : CustomResponseListener {
+                    override fun onResponse(requestCode: Int, response: String?) {
+                        progressDialog.dismiss()
+                        if (response != null && response.isNotEmpty()) {
+                            val modelResponse: BestDealsResponse =
+                                Utils.getObject(response, BestDealsResponse::class.java)
+                                        as BestDealsResponse
+                            if (!modelResponse.error!!) {
+                                if (modelResponse.productItems != null &&
+                                    modelResponse.productItems?.size!! > 0
+                                ) {
+                                    binding!!.recyclerViewBestDeals.layoutManager =
+                                        LinearLayoutManager(
+                                            mActivity,
+                                            RecyclerView.HORIZONTAL,
+                                            false
+                                        )
+                                    binding!!.recyclerViewBestDeals.adapter =
+                                        HomeBestDealsAdapter(
+                                            mActivity!!,
+                                            modelResponse.productItems
+                                        )
+                                }
+                            }
+                        }
+                    }
+
+                    override fun onFailure(statusCode: Int, error: Throwable?) {
+                        progressDialog.dismiss()
+                        Log.e(TAG, "onFailure: $error")
+                    }
+
+                })
+
+        } else
+            mActivity?.let {
+                Utils.showToastPopup(
+                    it,
+                    resources.getString(R.string.internet_error)
+                )
+            }
     }
 
 
@@ -224,14 +262,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 object : CustomResponseListener {
                     override fun onResponse(requestCode: Int, response: String?) {
                         progressDialog.dismiss()
-                        Log.e(TAG, "onResponse: $response")
                         if (response != null && response.isNotEmpty()) {
                             val modelResponse: ElectronicsCategoryResponse =
                                 Utils.getObject(response, ElectronicsCategoryResponse::class.java)
                                         as ElectronicsCategoryResponse
                             if (!modelResponse.error!!) {
                                 if (modelResponse.categoryResponse != null &&
-                                    modelResponse.categoryResponse?.size!! > 0) {
+                                    modelResponse.categoryResponse?.size!! > 0
+                                ) {
                                     binding!!.recyclerViewElectronics.layoutManager =
                                         LinearLayoutManager(
                                             mActivity,
@@ -276,14 +314,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 object : CustomResponseListener {
                     override fun onResponse(requestCode: Int, response: String?) {
                         progressDialog.dismiss()
-                        Log.e(TAG, "onResponse: $response")
                         if (response != null && response.isNotEmpty()) {
                             val modelResponse: BeautyCategoryResponse =
                                 Utils.getObject(response, BeautyCategoryResponse::class.java)
                                         as BeautyCategoryResponse
                             if (!modelResponse.error!!) {
                                 if (modelResponse.categoryResponse != null &&
-                                    modelResponse.categoryResponse?.size!! > 0) {
+                                    modelResponse.categoryResponse?.size!! > 0
+                                ) {
                                     binding!!.recyclerViewBeautyFashion.layoutManager =
                                         LinearLayoutManager(
                                             mActivity,

@@ -49,7 +49,7 @@ internal class NewArrivalAdapter(mActivity: Activity, productItems: List<Product
     }
 
     override fun getItemCount(): Int {
-        return productItems?.size ?: 0
+        return productItems?.size!!
     }
 
     class ViewHolder(binding: ItemNewArrivalCatBinding) : RecyclerView.ViewHolder(binding.root) {
