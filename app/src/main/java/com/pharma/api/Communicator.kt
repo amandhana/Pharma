@@ -1,8 +1,8 @@
-package com.agot.api
+package com.pharma.api
 
 import android.app.Activity
-import com.agot.support.Utils
-import com.pharma.api.CustomResponseListener
+import android.util.Log
+import com.pharma.support.Utils
 import com.loopj.android.http.AsyncHttpClient
 import com.loopj.android.http.AsyncHttpResponseHandler
 import com.loopj.android.http.RequestParams
@@ -10,6 +10,7 @@ import cz.msebera.android.httpclient.Header
 import cz.msebera.android.httpclient.entity.StringEntity
 
 class Communicator {
+    private val TAG = "Communicator"
     fun postLogin(reqCode : Int,context : Activity,url : String,params : RequestParams,responseListener : CustomResponseListener){
         val client = AsyncHttpClient()
         client.setTimeout(5 * 60000)
@@ -160,6 +161,7 @@ class Communicator {
                     responseListener.onResponse(reqCode,response.trim())
                 }catch (e : Exception){
                     e.printStackTrace()
+                    Log.e(TAG, "onSuccessError: $e")
                 }
             }
 

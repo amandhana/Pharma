@@ -40,4 +40,6 @@
     <string name="text_create_a_account">Create New Account? Register</string>
     <string name="text_username">Username</string>
     <string name="text_log_in">Log In</string>
+
+    <string name="text_no_data">No Data</string>
 </resources>

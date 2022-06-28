@@ -271,6 +271,7 @@
                 app:cardElevation="@dimen/_2sdp">
 
                 <ImageView
+                    android:id="@+id/iv_banner"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/banner_1"

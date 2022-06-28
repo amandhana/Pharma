@@ -6,11 +6,15 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import com.agot.api.Communicator
-import com.agot.api.Constants
-import com.agot.support.Utils
+import com.pharma.api.Communicator
+import com.pharma.api.Constants
+import com.pharma.support.Preference
+import com.pharma.support.Utils
 import com.loopj.android.http.RequestParams
 import com.pharma.R
+import com.pharma.activity.home.activity.HomeActivity
+import com.pharma.activity.login.model.CustomerAuthorizedResponse
+import com.pharma.activity.login.model.LoginResponse
 import com.pharma.activity.otp.OtpActivity
 import com.pharma.activity.signup.activity.SignUpActivity
 import com.pharma.api.CustomResponseListener
@@ -22,6 +26,8 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     var mActivity: Activity? = null
     var binding: ActivityLoginBinding? = null
+    var preference: Preference? = null
+    var childResponseList: CustomerAuthorizedResponse? = null
 
     private lateinit var progressDialog: ProgressDialog
 
@@ -37,6 +43,7 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun init() {
         mActivity = this
+        preference = Preference().getInstance(this)
         progressDialog = ProgressDialog(mActivity)
         setUpClickListener()
     }
@@ -97,11 +104,35 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                     override fun onResponse(requestCode: Int, response: String?) {
                         progressDialog.dismiss()
                         Log.e(TAG, "onResponse: $response")
+                        if (response != null && response.isNotEmpty()) {
+                            val modelResponse: LoginResponse = Utils.getObject(response,
+                                LoginResponse::class.java) as LoginResponse
+                            if (!modelResponse.error!!) {
+                                for (childResponse in
+                                modelResponse.customerAuthorizedResponse!!) {
+                                    childResponse?.customerRegId?.let {
+                                        preference?.putString("CustomerRegId", it.toString())
+                                    }
+                                    childResponse?.emailId?.let {
+                                        preference?.putString("EmailId", it)
+                                    }
+                                    childResponse?.firstName?.let {
+                                        preference?.putString("FirstName", it)
+                                    }
+                                    childResponse?.lastName?.let {
+                                        preference?.putString("LastName", it)
+                                    }
+                                }
+                                mActivity?.let { Utils.showToastPopup(it, "Successfully Log In!") }
+                                mActivity?.let { Utils.startActivityFinish(it, HomeActivity::class.java) }
+                            }
+                        }
                     }
 
                     override fun onFailure(statusCode: Int, error: Throwable?) {
                         progressDialog.dismiss()
                         Log.e(TAG, "onFailure: $error")
+                        mActivity?.let { Utils.showToastPopup(it, "Something went wrong, Please Try Again!") }
                     }
 
                 })

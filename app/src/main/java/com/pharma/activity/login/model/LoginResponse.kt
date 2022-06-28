@@ -1,4 +1,4 @@
-package com.pharma.activity.login.activity.model
+package com.pharma.activity.login.model
 
 
 import com.google.gson.annotations.SerializedName

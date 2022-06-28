@@ -4,7 +4,7 @@ import android.app.Activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.agot.support.Utils
+import com.pharma.support.Utils
 import com.pharma.R
 import com.pharma.activity.home.activity.HomeActivity
 import com.pharma.databinding.ActivityOtpBinding

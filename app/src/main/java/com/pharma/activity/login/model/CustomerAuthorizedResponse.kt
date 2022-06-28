@@ -1,9 +1,9 @@
-package com.pharma.activity.login.activity.model
+package com.pharma.activity.login.model
 
 
 import com.google.gson.annotations.SerializedName
 
-data class CustomerAuthorizedResponse(
+data class CustomerAuthorizedResponse (
     @SerializedName("CustomerRegId")
     var customerRegId: Long?,
     @SerializedName("EmailId")

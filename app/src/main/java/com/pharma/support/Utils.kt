@@ -1,4 +1,4 @@
-package com.agot.support
+package com.pharma.support
 
 import android.app.Activity
 import android.app.Dialog
@@ -40,6 +40,7 @@ import java.io.ByteArrayOutputStream
 import java.nio.charset.StandardCharsets
 import java.util.*
 import java.util.regex.Pattern
+
 
 class Utils {
     companion object {
@@ -133,6 +134,21 @@ class Utils {
         fun clearGlide(context: Activity?, imageView: ImageView?) {
             Glide.with(context!!)
                 .clear(imageView!!)
+        }
+
+        fun setProfileImageUsingGlide(context: Activity?, url: String?, imageView: ImageView?) {
+            val options: RequestOptions = RequestOptions()
+                .centerCrop()
+                .placeholder(R.drawable.ic_profile)
+                .error(R.drawable.ic_profile)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .priority(Priority.HIGH)
+                .dontAnimate()
+                .dontTransform()
+            Glide.with(context!!)
+                .load(url)
+                .apply(options)
+                .into(imageView!!)
         }
 
 

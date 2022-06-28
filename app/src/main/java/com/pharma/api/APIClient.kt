@@ -1,4 +1,4 @@
-package com.agot.api
+package com.pharma.api
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -19,7 +19,7 @@ class APIClient {
                 chain.proceed(request)
             }
             val client = httpClient.build()
-            return Retrofit.Builder().baseUrl(Constants.BASE_URL)
+            return Retrofit.Builder().baseUrl(Constants.BASE_URL_DOMAIN)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client).build()
         }

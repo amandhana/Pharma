@@ -7,7 +7,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.agot.support.Preference
+import com.pharma.support.Preference
 import com.pharma.activity.home.activity.HomeActivity
 import com.pharma.activity.login.activity.LoginActivity
 import com.pharma.databinding.ActivitySplashBinding
@@ -18,6 +18,7 @@ class SplashActivity : AppCompatActivity() {
     var mActivity: Activity? = null
     var binding: ActivitySplashBinding? = null
     var preference: Preference? = null
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySplashBinding.inflate(layoutInflater)
@@ -30,11 +31,10 @@ class SplashActivity : AppCompatActivity() {
         mActivity = this
         preference = Preference().getInstance(this)
         Handler().postDelayed({
-            var mainIntent: Intent? = null
-            if (preference?.getString("userID")?.isEmpty() == true) {
-                mainIntent = Intent(this@SplashActivity, LoginActivity::class.java)
+            var mainIntent: Intent? = if (preference?.getString("CustomerRegId")?.isEmpty() == true) {
+                Intent(this@SplashActivity, LoginActivity::class.java)
             } else {
-                mainIntent = Intent(this@SplashActivity, HomeActivity::class.java)
+                Intent(this@SplashActivity, HomeActivity::class.java)
             }
             this@SplashActivity.startActivity(mainIntent)
             finishAffinity()

@@ -5,16 +5,18 @@ import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
-import com.agot.api.Communicator
-import com.agot.api.Constants
-import com.agot.support.Utils
 import com.loopj.android.http.RequestParams
 import com.pharma.R
 import com.pharma.activity.login.activity.LoginActivity
 import com.pharma.activity.signup.model.GetMaxCustomerIDResponse
+import com.pharma.activity.signup.model.RegisterResponse
+import com.pharma.api.Communicator
+import com.pharma.api.Constants
 import com.pharma.api.CustomResponseListener
+import com.pharma.support.Utils
 import com.pharma.views.MediumEditText
 import com.pharma.views.RegularTextView
 import java.text.SimpleDateFormat
@@ -172,11 +174,31 @@ class SignUpActivity : AppCompatActivity() {
                     override fun onResponse(requestCode: Int, response: String?) {
                         progressDialog.dismiss()
                         Log.e(TAG, "onResponse: $response")
+                        if (response != null && response.isNotEmpty()) {
+                            val modelResponse: RegisterResponse = Utils.getObject(response,
+                                RegisterResponse::class.java) as RegisterResponse
+                            if (!modelResponse.error!!) {
+                                Toast.makeText(mActivity,
+                                    "${modelResponse.message.toString()}, Please Login to Continue.",
+                                    Toast.LENGTH_SHORT).show()
+                                mActivity.let { Utils.startActivityFinish(it, LoginActivity::class.java) }
+                                /*mActivity.let { Utils.startActivityFinish(it, OtpActivity::class.java) }*/
+                            } else {
+                                Utils.showToastPopup(mActivity,
+                                    "Unable to Create the account at the moment, Please Try Again!")
+                                Log.e(TAG, "onResponse: ${modelResponse.message}")
+                            }
+                        } else {
+                            Utils.showToastPopup(mActivity, "Something went wrong, Please Try Again!")
+                        }
                     }
 
                     override fun onFailure(statusCode: Int, error: Throwable?) {
                         progressDialog.dismiss()
                         Log.e(TAG, "onFailure: $error")
+                        Utils.showToastPopup(mActivity,
+                            "Unable to Create the account at the moment, Please Try Again!")
+                        Log.e(TAG, "onResponse: ${error?.message}")
                     }
 
                 })
@@ -186,7 +208,7 @@ class SignUpActivity : AppCompatActivity() {
     }
 
     private fun getCurrentDateTime(): String? {
-        return  SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date())
+        return  SimpleDateFormat("yyyy-MM-dd%HH:mm:ss", Locale.getDefault()).format(Date())
     }
 
     private fun init() {

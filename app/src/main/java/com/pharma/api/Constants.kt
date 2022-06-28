@@ -1,10 +1,16 @@
-package com.agot.api
+package com.pharma.api
 
 
 class Constants {
     companion object{
-        private const val BASE_URL_DOMAIN = "http://www.shoponn.co.in/customer/"
-        const val BASE_URL = BASE_URL_DOMAIN + "api/"
+        const val BASE_URL_DOMAIN = "https://www.shoponn.co.in/"
+        const val BASE_URL_CUSTOMER = BASE_URL_DOMAIN + "customer/api/"
+        const val BASE_URL_PROMOTION = BASE_URL_DOMAIN + "promotion/api/"
+        const val BASE_URL_MASTERMENU = BASE_URL_DOMAIN + "mastermenu/api/"
+        const val BASE_URL_ORDER = BASE_URL_DOMAIN + "order/api/"
+        const val BASE_URL_WISHLIST = BASE_URL_DOMAIN + "wishlist/api/"
+        const val BASE_URL_PRODUCT = BASE_URL_DOMAIN + "product/"
+        const val BASE_URL_PRODUCTSHOP = BASE_URL_DOMAIN + "productshop/api/"
     }
     object AppSaveData {
     }
@@ -17,9 +23,11 @@ class Constants {
         const val DEVICE_TOKEN = "device_token"
     }
     object Apis {
-        val GETCUSTOMERID = BASE_URL + "getMaxCustomerID"
-        val LOGIN = BASE_URL + "login"
-        val REGISTER = BASE_URL + "signupNewUser"
+        val GETCUSTOMERID = BASE_URL_CUSTOMER + "getMaxCustomerID"
+        val LOGIN = BASE_URL_CUSTOMER + "login"
+        val REGISTER = BASE_URL_CUSTOMER + "signupNewUser"
+        val GETHOMEPAGEBANNERDETAILS = BASE_URL_PROMOTION + "get/getHomePageBannerDetails"
+        val NEWLYLAUNCHED = BASE_URL_PRODUCT + "get/api/newlylaunched"
 
     }
 

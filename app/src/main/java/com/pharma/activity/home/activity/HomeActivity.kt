@@ -15,14 +15,14 @@ import androidx.core.view.GravityCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
-import com.agot.support.Utils
+import com.pharma.support.Utils
 import com.pharma.R
 import com.pharma.activity.home.fragment.DiscountFragment
 import com.pharma.activity.home.fragment.HomeFragment
 import com.pharma.activity.home.fragment.MyCartFragment
 import com.pharma.activity.home.fragment.MyProfileFragment
+import com.pharma.activity.home.newarrival.fragment.NewArrivalFragment
 import com.pharma.databinding.ActivityHomeBinding
-
 
 class HomeActivity : AppCompatActivity(), View.OnClickListener {
     var mActivity: Activity? = null
@@ -44,12 +44,22 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                     exitAppPopup()
                 else if (fragment is DiscountFragment) {
                     supportFragmentManager.popBackStack(
-                        DiscountFragment::class.java.getName(),
+                        DiscountFragment::class.java.name,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    )
+                } else if (fragment is NewArrivalFragment) {
+                    supportFragmentManager.popBackStack(
+                        NewArrivalFragment::class.java.name,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    )
+                } else if (fragment is MyCartFragment) {
+                    supportFragmentManager.popBackStack(
+                        MyCartFragment::class.java.name,
                         FragmentManager.POP_BACK_STACK_INCLUSIVE
                     )
                 } else if (fragment is MyProfileFragment) {
                     supportFragmentManager.popBackStack(
-                        MyProfileFragment::class.java.getName(),
+                        MyProfileFragment::class.java.name,
                         FragmentManager.POP_BACK_STACK_INCLUSIVE
                     )
                 }
@@ -72,7 +82,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
 
     }
 
-    private fun loadFragment(tag: String, fragment: Fragment) {
+    fun loadFragment(tag: String, fragment: Fragment) {
         fragment.arguments = null
         val transaction: FragmentTransaction = supportFragmentManager.beginTransaction()
         val fragmentPrevious = supportFragmentManager.findFragmentByTag(tag)
@@ -102,7 +112,7 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
         )
     }
 
-    fun exitAppPopup() {
+    private fun exitAppPopup() {
         try {
             val dialog = Dialog(mActivity!!)
             dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)

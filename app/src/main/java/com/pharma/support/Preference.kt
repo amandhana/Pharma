@@ -1,4 +1,4 @@
-package com.agot.support
+package com.pharma.support
 
 import android.content.Context
 import android.content.SharedPreferences

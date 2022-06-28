@@ -3,9 +3,13 @@ package com.pharma.activity.home.adapter
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.pharma.R
+import com.pharma.activity.home.activity.HomeActivity
+import com.pharma.activity.home.fragment.HomeFragment
+import com.pharma.activity.home.newarrival.fragment.NewArrivalFragment
 import com.pharma.databinding.ItemHomeCatBinding
 
 internal class HomeCatAdapter(context: Activity) :
@@ -34,6 +38,13 @@ internal class HomeCatAdapter(context: Activity) :
             0 -> {
                 binding!!.ivCatImage.setBackgroundResource(R.drawable.cat_1)
                 binding!!.tvCatName.text = "New Arrival"
+                binding!!.ivCatImage.setOnClickListener(View.OnClickListener {
+                    if (context is HomeActivity) {
+                        (context as HomeActivity).resetBottom("home")
+                        (context as HomeActivity).loadFragment(NewArrivalFragment::class.java.name,
+                            NewArrivalFragment.newInstance()!!)
+                    }
+                })
             }
             1 -> {
                 binding!!.ivCatImage.setBackgroundResource(R.drawable.cat_2)

@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.DataBindingUtil
 import com.pharma.activity.welcome.adapter.WelcomeSliderAdapter
-import com.agot.support.Utils
+import com.pharma.support.Utils
 import com.pharma.R
 import com.pharma.activity.login.activity.LoginActivity
 import com.pharma.databinding.ActivityWelcomeBinding

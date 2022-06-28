@@ -1,4 +1,4 @@
-package com.agot.api
+package com.pharma.api
 
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
