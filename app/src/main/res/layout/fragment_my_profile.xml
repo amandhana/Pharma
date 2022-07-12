@@ -2,8 +2,112 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
+    <com.pharma.views.RegularTextView
+        android:id="@+id/logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/text_logout"
+        android:textSize="@dimen/_10ssp"
+        android:textColor="@color/black"
+        android:layout_gravity="end"
+        android:gravity="center_vertical"
+        android:drawableEnd="@drawable/ic_logout"
+        app:drawableTint="@color/black"
+        android:drawablePadding="@dimen/_8sdp"
+        android:layout_marginEnd="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp" />
 
+    <com.pharma.views.BoldTextView
+        android:id="@+id/customer_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_customer_name"
+        android:textSize="@dimen/_20ssp"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_60sdp" />
+
+    <com.pharma.views.RegularTextView
+        android:id="@+id/customer_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_email"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_8sdp" />
+
+    <com.pharma.views.RegularTextView
+        android:id="@+id/customer_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_mobile_number"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="@dimen/_8sdp" />
+
+    <com.pharma.views.BoldTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_address"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:gravity="start"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_8sdp" />
+
+    <com.pharma.views.RegularTextView
+        android:id="@+id/customer_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_edit_text"
+        android:hint="@string/text_address"
+        android:textSize="@dimen/_12ssp"
+        android:textColor="@color/black"
+        android:gravity="start"
+        android:imeOptions="actionDone"
+        android:inputType="textMultiLine"
+        android:maxLength="200"
+        android:maxLines="5"
+        android:minHeight="200dp"
+        android:padding="10dp"
+        android:scrollbars="vertical"
+        android:layout_marginHorizontal="@dimen/_12sdp" />
+
+    <Button
+        android:id="@+id/btn_edit_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_edit_profile"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp" />
+
+    <Button
+        android:id="@+id/btn_change_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_change_password"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp" />
+
+    <Button
+        android:id="@+id/btn_my_orders"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_my_orders"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp" />
+
+    <Button
+        android:id="@+id/btn_saved_addresses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/text_saved_addresses"
+        android:layout_marginHorizontal="@dimen/_12sdp"
+        android:layout_marginTop="@dimen/_8sdp" />
 
 </LinearLayout>

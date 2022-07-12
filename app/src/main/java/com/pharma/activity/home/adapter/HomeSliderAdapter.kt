@@ -40,19 +40,10 @@ class HomeSliderAdapter(
             layoutInflater!!.inflate(R.layout.item_home_auto_scroll, viewHolder, false)
         val imageView = itemView.findViewById<ImageView>(R.id.iv_home_slider_image)
         homePageBanner?.let {
-            Utils.setImageUsingGlide(context, homePageBanner?.get(position)?.url, imageView)
+            Utils.setImageUsingGlide(context,
+                "https://seller.shoponn.co.in/Image/${homePageBanner!![position]?.imgPath}",
+                imageView)
         }
-        /*when (position) {
-            0 -> {
-                imageView.setBackgroundResource(R.drawable.slide_1)
-            }
-            1 -> {
-                imageView.setBackgroundResource(R.drawable.banner_1)
-            }
-            2 -> {
-                imageView.setBackgroundResource(R.drawable.banner_2)
-            }
-        }*/
         viewHolder.addView(itemView)
         return itemView
     }

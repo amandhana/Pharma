@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_2sdp"
+        app:cardElevation="@dimen/_12sdp"
+        android:layout_marginHorizontal="@dimen/_6sdp"
+        android:layout_marginVertical="@dimen/_6sdp"
+        android:background="@drawable/bg_spinner" >
 
-</LinearLayout>
+        <Spinner
+            android:id="@+id/super_cat_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_32sdp"
+            android:layout_alignParentTop="true" />
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

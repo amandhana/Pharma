@@ -33,34 +33,22 @@ internal class HomePharmaAdapter(context: Activity) :
         when (position) {
             0 -> {
                 binding!!.ivCatImage.setBackgroundResource(R.drawable.pharma_1)
-                binding!!.tvPharmaName.text = "New Arrival"
+                binding!!.tvPharmaName.text = "Regular Checkup"
             }
             1 -> {
                 binding!!.ivCatImage.setBackgroundResource(R.drawable.pharma_2)
-                binding!!.tvPharmaName.text = "Pharma"
+                binding!!.tvPharmaName.text = "Medical Report"
             }
             2 -> {
                 binding!!.ivCatImage.setBackgroundResource(R.drawable.pharma_3)
-                binding!!.tvPharmaName.text = "FMCG"
-            }
-            3 -> {
-                binding!!.ivCatImage.setBackgroundResource(R.drawable.pharma_1)
-                binding!!.tvPharmaName.text = "Electronics"
-            }
-            4 -> {
-                binding!!.ivCatImage.setBackgroundResource(R.drawable.pharma_2)
-                binding!!.tvPharmaName.text = "Fashion"
-            }
-            5 -> {
-                binding!!.ivCatImage.setBackgroundResource(R.drawable.pharma_3)
-                binding!!.tvPharmaName.text = "Music"
+                binding!!.tvPharmaName.text = "Medicines"
             }
         }
     }
 
 
     override fun getItemCount(): Int {
-        return 6
+        return 3
     }
 
     class ViewHolder(binding: ItemPharmaHomeBinding) : RecyclerView.ViewHolder(binding.root)

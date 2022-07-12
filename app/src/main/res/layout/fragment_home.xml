@@ -19,7 +19,24 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_80sdp"
                 android:layout_margin="@dimen/_5sdp"
-                android:nestedScrollingEnabled="false" />
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_8sdp">
+
+                <LinearLayout
+                    android:id="@+id/view_cat_lay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
+                    android:layout_marginEnd="@dimen/_8sdp"
+                    android:orientation="horizontal" />
+
+            </HorizontalScrollView>
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
@@ -129,15 +146,15 @@
                 android:visibility="gone" />
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp">
 
                 <LinearLayout
-                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
                     android:orientation="vertical">
 
 
@@ -147,9 +164,9 @@
 
                         <com.pharma.views.BoldTextView
                             android:id="@+id/tv_cat_name"
-                            android:layout_centerVertical="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
                             android:layout_marginStart="@dimen/_20sdp"
                             android:text="PHARMA"
                             android:textColor="@color/colorPrimary"
@@ -178,15 +195,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp">
 
                 <LinearLayout
-                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
                     android:orientation="vertical">
 
                     <RelativeLayout
@@ -229,9 +246,9 @@
                 android:layout_height="wrap_content">
 
                 <LinearLayout
-                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
                     android:orientation="vertical">
 
                     <RelativeLayout
@@ -280,15 +297,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp">
 
                 <LinearLayout
-                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
                     android:orientation="vertical">
 
                     <RelativeLayout
@@ -327,15 +344,15 @@
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_margin="@dimen/_5sdp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp"
                 app:cardCornerRadius="@dimen/_5sdp">
 
                 <LinearLayout
-                    android:layout_margin="@dimen/_5sdp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_5sdp"
                     android:orientation="vertical">
 
                     <RelativeLayout

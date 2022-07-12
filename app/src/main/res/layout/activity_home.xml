@@ -26,14 +26,14 @@
                 android:background="@drawable/ic_menu"
                 android:backgroundTint="@color/colorPrimary"
                 android:contentDescription="@string/app_name" />
-            
+
             <androidx.cardview.widget.CardView
-                android:layout_toStartOf="@+id/iv_notification_home"
                 android:layout_width="@dimen/_200sdp"
                 android:layout_height="@dimen/_25sdp"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="@dimen/_35sdp"
                 android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_toStartOf="@+id/iv_notification_home"
                 android:background="@drawable/bg_edit_text_5"
                 android:elevation="@dimen/_10sdp"
                 app:cardCornerRadius="@dimen/_5sdp">
@@ -57,10 +57,10 @@
                         android:id="@+id/iv_search"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
+                        android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_5sdp"
                         android:background="@drawable/ic_search"
-                        android:layout_alignParentEnd="true"
                         android:backgroundTint="@color/background_color"
                         android:contentDescription="@string/app_name" />
 
@@ -68,9 +68,9 @@
                         android:id="@+id/iv_audio_search"
                         android:layout_width="@dimen/_15sdp"
                         android:layout_height="@dimen/_15sdp"
-                        android:layout_toStartOf="@+id/iv_search"
                         android:layout_centerVertical="true"
                         android:layout_marginEnd="@dimen/_5sdp"
+                        android:layout_toStartOf="@+id/iv_search"
                         android:background="@drawable/ic_voice_search"
                         android:backgroundTint="@color/background_color"
                         android:contentDescription="@string/app_name" />

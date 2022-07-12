@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.pharma.support.Utils
 import com.pharma.R
+import com.pharma.activity.home.books.fragment.BooksFragment
 import com.pharma.activity.home.fragment.DiscountFragment
 import com.pharma.activity.home.fragment.HomeFragment
 import com.pharma.activity.home.fragment.MyCartFragment
@@ -50,6 +51,11 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 } else if (fragment is NewArrivalFragment) {
                     supportFragmentManager.popBackStack(
                         NewArrivalFragment::class.java.name,
+                        FragmentManager.POP_BACK_STACK_INCLUSIVE
+                    )
+                } else if (fragment is BooksFragment) {
+                    supportFragmentManager.popBackStack(
+                        BooksFragment::class.java.name,
                         FragmentManager.POP_BACK_STACK_INCLUSIVE
                     )
                 } else if (fragment is MyCartFragment) {
@@ -199,6 +205,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                         R.color.colorPrimary
                     )
                 )
+
+                binding!!.headerLay.visibility = View.VISIBLE
             }
             "discount" -> {
                 binding!!.tvDiscount.setTextColor(
@@ -213,6 +221,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                         R.color.colorPrimary
                     )
                 )
+
+                binding!!.headerLay.visibility = View.GONE
             }
             "my_cart" -> {
                 binding!!.tvMyCart.setTextColor(
@@ -227,6 +237,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                         R.color.colorPrimary
                     )
                 )
+
+                binding!!.headerLay.visibility = View.GONE
             }
             "my_profile" -> {
                 binding!!.tvMyProfile.setTextColor(
@@ -241,6 +253,8 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                         R.color.colorPrimary
                     )
                 )
+
+                binding!!.headerLay.visibility = View.GONE
 
             }
         }

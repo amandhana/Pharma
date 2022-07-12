@@ -26,6 +26,7 @@ class Constants {
         val GETCUSTOMERID = BASE_URL_CUSTOMER + "getMaxCustomerID"
         val LOGIN = BASE_URL_CUSTOMER + "login"
         val REGISTER = BASE_URL_CUSTOMER + "signupNewUser"
+        val GETCUSTOMERADDRESS = BASE_URL_CUSTOMER + "getCustomerAddress"
         val GETHOMEPAGEBANNERDETAILS = BASE_URL_PROMOTION + "get/getHomePageBannerDetails"
         val NEWLYLAUNCHED = BASE_URL_PRODUCT + "get/api/newlylaunched"
         val DEALOFTHEDAY = BASE_URL_PRODUCT + "get/api/dealoftheday"

@@ -43,4 +43,74 @@
 
     <string name="text_no_data">No Data</string>
     <string name="text_upto">UPTO</string>
+    <string name="text_customer_name">Customer Name</string>
+    <string name="text_address">Address</string>
+    <string name="text_edit_profile">Edit Profile</string>
+    <string name="text_my_orders">My Orders</string>
+    <string name="text_saved_addresses">Saved Addresses</string>
+    <string name="text_change_password">Change Password</string>
+    <string name="text_logout">Logout</string>
+    <string name="text_no_item_in_cart">There is nothing in your shopping cart.</string>
+    <string name="text_continue_shopping">Continue Shopping</string>
+
+    <!--SuperCategories-->
+
+    <!--HomeFragment-->
+    <string-array name="super_categories_home">
+        <item>New Arrival</item>
+        <item>Automotive, Real Estate &amp; Industrial</item>
+        <item>Bags &amp; Luggage</item>
+        <item>Beauty, Health &amp; Fmcg</item>
+        <item>Books</item>
+        <item>Breakfast</item>
+        <item>Brunch</item>
+        <item>Computers, Laptops &amp; Gaming</item>
+        <item>Dinner</item>
+        <item>Eateries</item>
+        <item>Gifts &amp; Sweets</item>
+        <item>GST</item>
+        <item>Hobbies &amp; E-Learning</item>
+        <item>Home &amp; Living</item>
+        <item>Jewellery &amp; Gold</item>
+        <item>Lunch</item>
+        <item>Mens Zone</item>
+        <item>Mobiles, Tablets &amp; Office Equipments</item>
+        <item>Non-Prescription</item>
+        <item>Prescription</item>
+        <item>Sports &amp; Fitness</item>
+        <item>Toys, Kids &amp; Babies</item>
+        <item>Tv, Audio, Cameras &amp; Appliances</item>
+        <item>Womens Zone</item>
+        <item>Work From Home</item>
+    </string-array>
+
+    <!--DiscountFragment-->
+    <string-array name="super_categories_discount">
+        <item>All</item>
+        <item>Automotive, Real Estate &amp; Industrial</item>
+        <item>Toys ,Kids &amp; Babies</item>
+        <item>Computers ,Laptops &amp; Gaming</item>
+        <item>Gifts &amp; Sweets</item>
+        <item>Mens Zone</item>
+        <item>Hobbies &amp; E-Learning</item>
+        <item>Tv, Audio, Cameras &amp; Appliances</item>
+        <item>Home &amp; Living</item>
+        <item>Mobiles ,Tablets &amp; Office Equipments</item>
+        <item>Womens Zone</item>
+        <item>Bags &amp; Luggage</item>
+        <item>Jewellery &amp; Gold</item>
+        <item>Sports &amp; Fitness</item>
+        <item>Beauty, Health &amp; Fmcg</item>
+        <item>Books</item>
+        <item>GST</item>
+        <item>Work From Home</item>
+        <item>Eateries</item>
+        <item>Prescription</item>
+        <item>Non-Prescription</item>
+        <item>Breakfast</item>
+        <item>Brunch</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+    </string-array>
+
 </resources>

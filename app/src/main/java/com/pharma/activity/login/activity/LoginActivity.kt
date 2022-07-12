@@ -116,12 +116,16 @@ class LoginActivity : AppCompatActivity(), View.OnClickListener {
                                     childResponse?.emailId?.let {
                                         preference?.putString("EmailId", it)
                                     }
+                                    childResponse?.password?.let {
+                                        preference?.putString("password", it)
+                                    }
                                     childResponse?.firstName?.let {
                                         preference?.putString("FirstName", it)
                                     }
                                     childResponse?.lastName?.let {
                                         preference?.putString("LastName", it)
                                     }
+                                    Log.e(TAG, "onResponse: pass " + preference?.getString("password"))
                                 }
                                 mActivity?.let { Utils.showToastPopup(it, "Successfully Log In!") }
                                 mActivity?.let { Utils.startActivityFinish(it, HomeActivity::class.java) }

@@ -3,16 +3,21 @@ package com.pharma.activity.home.fragment
 import android.annotation.SuppressLint
 import android.app.Activity
 import android.app.ProgressDialog
+import android.content.Context
 import android.graphics.Rect
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
+import com.google.gson.Gson
 import com.pharma.R
 import com.pharma.activity.home.activity.HomeActivity
 import com.pharma.activity.home.adapter.*
@@ -23,6 +28,7 @@ import com.pharma.api.CustomResponseListener
 import com.pharma.databinding.FragmentHomeBinding
 import com.pharma.support.Utils
 import java.util.*
+import kotlin.math.abs
 
 
 class HomeFragment : Fragment(), View.OnClickListener {
@@ -105,7 +111,6 @@ class HomeFragment : Fragment(), View.OnClickListener {
                                 if (modelResponse.homePageBanner != null &&
                                     modelResponse.homePageBanner?.size!! > 0
                                 ) {
-
                                     binding!!.autoScrollViewpager.adapter = HomeSliderAdapter(
                                         mActivity!!,
                                         modelResponse.homePageBanner
@@ -120,8 +125,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
                                         ViewPager2.PageTransformer { page: View, position: Float ->
                                             page.translationX = -pageTranslationX * position
                                             page.scaleY =
-                                                1 - (0.25f * kotlin.math.abs(position))
+                                                1 - (0.25f * abs(position))
                                         }
+                                    binding!!.autoScrollViewpager.setOnPageClickListener { pager, position ->
+                                        Log.e(
+                                            TAG, "onResponse: Pager " +
+                                                    "${modelResponse.homePageBanner?.get(position)?.url}"
+                                        )
+                                    }
                                 }
                             }
                         }
@@ -169,14 +180,100 @@ class HomeFragment : Fragment(), View.OnClickListener {
         }
     }
 
+    @SuppressLint("InflateParams")
     private fun setUpHomeCatTrending() {
-        binding!!.recyclerViewCat.layoutManager =
+
+        var superCategories: ArrayList<HomeCatModel?>? = ArrayList()
+        var superCatNames: List<String> =
+            resources.getStringArray(R.array.super_categories_home).toList()
+        val gson = Gson()
+        for (item in superCatNames) {
+            if (item == "New Arrival") {
+                superCategories!!.add(HomeCatModel(0, item, R.drawable.cat_1))
+            } else if (item == "Automotive, Real Estate & Industrial") {
+                superCategories!!.add(HomeCatModel(1, item, R.drawable.cat_real_estate))
+            } else if (item == "Bags & Luggage") {
+                superCategories!!.add(HomeCatModel(11, item, R.drawable.cat_bags))
+            } else if (item == "Beauty, Health & Fmcg") {
+                superCategories!!.add(HomeCatModel(14, item, R.drawable.cat_beauty))
+            } else if (item == "Books") {
+                superCategories!!.add(HomeCatModel(15, item, R.drawable.cat_books))
+            } else if (item == "Breakfast") {
+                superCategories!!.add(HomeCatModel(22, item, R.drawable.cat_breakfast))
+            } else if (item == "Brunch") {
+                superCategories!!.add(HomeCatModel(23, item, R.drawable.cat_brunch))
+            } else if (item == "Computers, Laptops & Gaming") {
+                superCategories!!.add(HomeCatModel(3, item, R.drawable.cat_computers))
+            } else if (item == "Dinner") {
+                superCategories!!.add(HomeCatModel(25, item, R.drawable.cat_dinner))
+            } else if (item == "Eateries") {
+                superCategories!!.add(HomeCatModel(18, item, R.drawable.cat_eateries))
+            } else if (item == "Gifts & Sweets") {
+                superCategories!!.add(HomeCatModel(4, item, R.drawable.cat_sweets))
+            } else if (item == "GST") {
+                superCategories!!.add(HomeCatModel(16, item, R.drawable.cat_gst))
+            } else if (item == "Hobbies & E-Learning") {
+                superCategories!!.add(HomeCatModel(6, item, R.drawable.cat_hobbies))
+            } else if (item == "Home & Living") {
+                superCategories!!.add(HomeCatModel(8, item, R.drawable.cat_home))
+            } else if (item == "Jewellery & Gold") {
+                superCategories!!.add(HomeCatModel(12, item, R.drawable.cat_jewellery))
+            } else if (item == "Lunch") {
+                superCategories!!.add(HomeCatModel(24, item, R.drawable.cat_lunch))
+            } else if (item == "Mens Zone") {
+                superCategories!!.add(HomeCatModel(5, item, R.drawable.cat_mens_zone))
+            } else if (item == "Mobiles, Tablets & Office Equipments") {
+                superCategories!!.add(HomeCatModel(9, item, R.drawable.cat_mobile))
+            } else if (item == "Non-Prescription") {
+                superCategories!!.add(HomeCatModel(21, item, R.drawable.cat_prescription))
+            } else if (item == "Prescription") {
+                superCategories!!.add(HomeCatModel(19, item, R.drawable.cat_prescription))
+            } else if (item == "Sports & Fitness") {
+                superCategories!!.add(HomeCatModel(13, item, R.drawable.cat_sports_fitness))
+            } else if (item == "Toys, Kids & Babies") {
+                superCategories!!.add(HomeCatModel(2, item, R.drawable.cat_toys))
+            } else if (item == "Tv, Audio, Cameras & Appliances") {
+                superCategories!!.add(HomeCatModel(7, item, R.drawable.cat_tv_camera))
+            } else if (item == "Womens Zone") {
+                superCategories!!.add(HomeCatModel(10, item, R.drawable.cat_womens_zone))
+            } else if (item == "Work From Home") {
+                superCategories!!.add(HomeCatModel(17, item, R.drawable.cat_work_from_home))
+            }
+        }
+        val dataDict = mapOf(
+            "Message" to "Super Categories result return successfully!",
+            "superCategories" to superCategories
+        )
+        val jsonString = gson.toJson(dataDict)
+        Log.e(TAG, "setUpHomeCatTrending: $jsonString")
+        val modelResponse: HomeCatResponse = Utils.getObject(jsonString, HomeCatResponse::class.java) as HomeCatResponse
+        if (modelResponse.superCategories != null && modelResponse.superCategories!!.size > 0){
+            binding!!.viewCatLay.removeAllViews()
+            for (position in 0 until modelResponse.superCategories!!.size){
+                val inflater = mActivity!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
+                val itemView: View = inflater!!.inflate(R.layout.item_home_cat, null, true)
+
+                val tvCatName = itemView.findViewById<TextView>(R.id.tv_cat_name)
+                val ivCatImage = itemView.findViewById<ImageView>(R.id.iv_cat_image)
+
+                ivCatImage.setBackgroundResource(modelResponse.superCategories!![position]!!.catImage)
+                tvCatName.text = modelResponse.superCategories!!.get(position)!!.catName
+
+                tvCatName.tag = 1000+position
+
+                tvCatName.setOnClickListener {
+                    val tag = tvCatName.tag as Int - 1000
+                }
+                binding!!.viewCatLay.addView(itemView)
+            }
+        }
+        /*binding!!.recyclerViewCat.layoutManager =
             LinearLayoutManager(
                 mActivity,
                 RecyclerView.HORIZONTAL,
                 false
             )
-        binding!!.recyclerViewCat.adapter = HomeCatAdapter(mActivity!!)
+        binding!!.recyclerViewCat.adapter = HomeCatAdapter(mActivity!!, modelResponse.superCategories)*/
     }
 
     private fun setUpHomePharma() {

@@ -38,6 +38,6 @@ class SplashActivity : AppCompatActivity() {
             }
             this@SplashActivity.startActivity(mainIntent)
             finishAffinity()
-        }, 3000)
+        }, 1000)
     }
 }

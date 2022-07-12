@@ -38,7 +38,9 @@ internal class HomeBestDealsAdapter(context: Activity, productItems: List<Produc
         @SuppressLint("RecyclerView") position: Int
     ) {
 
-        Utils.setImageUsingGlide(context, productItems!![position]?.imagePath2, binding!!.ivCatImage)
+        Utils.setImageUsingGlide(context,
+            "https://seller.shoponn.co.in/${productItems!![position]?.imagePath2}",
+            binding!!.ivCatImage)
         binding!!.tvMrp.text = NumberFormat.getCurrencyInstance(
             Locale("en", "in")
         ).format(
