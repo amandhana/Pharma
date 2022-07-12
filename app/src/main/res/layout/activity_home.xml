@@ -127,11 +127,10 @@
 
                     <ImageView
                         android:id="@+id/iv_home"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_home"
-                        android:backgroundTint="@color/background_color"
+                        android:background="@drawable/home_fragment"
                         android:contentDescription="@string/app_name" />
 
                     <com.pharma.views.MediumTextView
@@ -156,11 +155,10 @@
 
                     <ImageView
                         android:id="@+id/iv_discount"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_discount"
-                        android:backgroundTint="@color/background_color"
+                        android:background="@drawable/discount_fragment"
                         android:contentDescription="@string/app_name" />
 
 
@@ -187,11 +185,10 @@
 
                     <ImageView
                         android:id="@+id/iv_my_cart"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_cart"
-                        android:backgroundTint="@color/background_color"
+                        android:background="@drawable/cart_fragment"
                         android:contentDescription="@string/app_name" />
 
                     <com.pharma.views.MediumTextView
@@ -215,11 +212,10 @@
 
                     <ImageView
                         android:id="@+id/iv_my_profile"
-                        android:layout_width="@dimen/_20sdp"
-                        android:layout_height="@dimen/_20sdp"
+                        android:layout_width="@dimen/_24sdp"
+                        android:layout_height="@dimen/_24sdp"
                         android:layout_centerHorizontal="true"
-                        android:background="@drawable/ic_profile"
-                        android:backgroundTint="@color/background_color"
+                        android:background="@drawable/profile_fragment"
                         android:contentDescription="@string/app_name" />
 
                     <com.pharma.views.MediumTextView

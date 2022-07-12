@@ -161,12 +161,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                 R.color.secondary_text_color
             )
         )
-        binding!!.ivDiscount.background.setTint(
+        /*binding!!.ivDiscount.background.setTint(
             ContextCompat.getColor(
                 mActivity!!,
                 R.color.secondary_text_color
             )
-        )
+        )*/
         binding!!.tvMyCart.setTextColor(
             ContextCompat.getColor(
                 mActivity!!,
@@ -215,12 +215,12 @@ class HomeActivity : AppCompatActivity(), View.OnClickListener {
                         R.color.colorPrimary
                     )
                 )
-                binding!!.ivDiscount.background.setTint(
+                /*binding!!.ivDiscount.background.setTint(
                     ContextCompat.getColor(
                         mActivity!!,
                         R.color.colorPrimary
                     )
-                )
+                )*/
 
                 binding!!.headerLay.visibility = View.GONE
             }

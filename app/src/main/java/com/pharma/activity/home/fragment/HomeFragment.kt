@@ -10,7 +10,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -246,20 +245,22 @@ class HomeFragment : Fragment(), View.OnClickListener {
         )
         val jsonString = gson.toJson(dataDict)
         Log.e(TAG, "setUpHomeCatTrending: $jsonString")
-        val modelResponse: HomeCatResponse = Utils.getObject(jsonString, HomeCatResponse::class.java) as HomeCatResponse
-        if (modelResponse.superCategories != null && modelResponse.superCategories!!.size > 0){
+        val modelResponse: HomeCatResponse =
+            Utils.getObject(jsonString, HomeCatResponse::class.java) as HomeCatResponse
+        if (modelResponse.superCategories != null && modelResponse.superCategories!!.isNotEmpty()) {
             binding!!.viewCatLay.removeAllViews()
-            for (position in 0 until modelResponse.superCategories!!.size){
-                val inflater = mActivity!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
+            for (position in 0 until modelResponse.superCategories!!.size) {
+                val inflater =
+                    mActivity!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater?
                 val itemView: View = inflater!!.inflate(R.layout.item_home_cat, null, true)
 
                 val tvCatName = itemView.findViewById<TextView>(R.id.tv_cat_name)
                 val ivCatImage = itemView.findViewById<ImageView>(R.id.iv_cat_image)
 
                 ivCatImage.setBackgroundResource(modelResponse.superCategories!![position]!!.catImage)
-                tvCatName.text = modelResponse.superCategories!!.get(position)!!.catName
+                tvCatName.text = modelResponse.superCategories!![position]!!.catName
 
-                tvCatName.tag = 1000+position
+                tvCatName.tag = 1000 + position
 
                 tvCatName.setOnClickListener {
                     val tag = tvCatName.tag as Int - 1000
