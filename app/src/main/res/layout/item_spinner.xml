@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/_8sdp"
+    android:paddingBottom="@dimen/_8sdp" >
+
+    <com.shoponn.views.RegularTextView
+        android:id="@+id/tv_cat_name_spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="@dimen/_5sdp"
+        android:singleLine="true"
+        android:text=""
+        android:gravity="center_vertical|start"
+        android:textColor="@color/primary_text_color"
+        android:textSize="@dimen/_12ssp" />
+
+</RelativeLayout>

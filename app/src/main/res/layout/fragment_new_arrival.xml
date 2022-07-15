@@ -12,7 +12,7 @@
         android:visibility="visible"
         android:layout_margin="@dimen/_5sdp" />
 
-    <com.pharma.views.MediumTextView
+    <com.shoponn.views.MediumTextView
         android:id="@+id/tv_no_data"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

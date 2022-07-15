@@ -11,7 +11,7 @@
         android:layout_marginEnd="30dp"
         android:background="@drawable/toast_popup_bg">
 
-        <com.pharma.views.BoldTextView
+        <com.shoponn.views.BoldTextView
             android:id="@+id/oops_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <com.pharma.views.RegularTextView
+        <com.shoponn.views.RegularTextView
             android:id="@+id/message_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:layout_marginTop="15dp"
             android:background="@color/black" />
 
-        <com.pharma.views.RegularTextView
+        <com.shoponn.views.RegularTextView
             android:id="@+id/ok_btn"
             android:layout_width="match_parent"
             android:layout_height="40dp"

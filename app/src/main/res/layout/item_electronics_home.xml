@@ -28,7 +28,7 @@
 
     </androidx.cardview.widget.CardView>
 
-    <com.pharma.views.MediumTextView
+    <com.shoponn.views.MediumTextView
         android:id="@+id/tv_electronics_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

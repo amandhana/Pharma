@@ -26,7 +26,7 @@
                 android:layout_marginEnd="@dimen/_5sdp"
                 android:scaleType="fitStart" />
 
-            <com.pharma.views.MediumTextView
+            <com.shoponn.views.MediumTextView
                 android:id="@+id/tv_cat_name"
                 android:layout_width="@dimen/_60sdp"
                 android:layout_height="wrap_content"

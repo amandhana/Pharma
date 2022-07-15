@@ -9,6 +9,7 @@
     <color name="dark_text_color">#3a0203</color>
     <color name="header_bg">#fcfcfc</color>
     <color name="grey">#545454</color>
+    <color name="light_grey">#DDDDDD</color>
     <color name="primary_text_color">#4c4b4b</color>
     <color name="secondary_text_color">#A2A2A2</color>
     <color name="hint_color">#7a7a7a</color>

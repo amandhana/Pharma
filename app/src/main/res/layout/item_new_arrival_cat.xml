@@ -70,7 +70,7 @@
 
             </RelativeLayout>
 
-            <com.pharma.views.MediumTextView
+            <com.shoponn.views.MediumTextView
                 android:id="@+id/tv_cat_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

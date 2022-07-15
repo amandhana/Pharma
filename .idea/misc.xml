@@ -71,27 +71,36 @@
         <entry key="..\:/Source git/iSocial/source/app/src/main/res/layout/item_my_donation_list.xml" value="0.24074074074074073" />
         <entry key="..\:/Source git/iSocial/source/app/src/main/res/layout/item_welcome_screen.xml" value="0.2" />
         <entry key="..\:/Source git/iSocial/source/app/src/main/res/layout/left_menu.xml" value="0.25" />
+        <entry key="..\:/Users/Vikash/.gradle/caches/transforms-3/ee6ba8ffbab97a206e3a6531e1c93b77/transformed/appcompat-1.4.2/res/layout/support_simple_spinner_dropdown_item.xml" value="0.25" />
+        <entry key="..\:/Users/Vikash/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_dropdown_item.xml" value="0.25" />
+        <entry key="..\:/Users/Vikash/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_spinner_item.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/drawable-v24/bg_otp_box_circle.xml" value="0.177" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/drawable/bg_discount.xml" value="0.177" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/drawable/bg_edit_text.xml" value="0.177" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/drawable/bg_edit_text_5.xml" value="0.177" />
+        <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/drawable/bg_left_menu.xml" value="0.1845" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/drawable/bg_spinner.xml" value="0.177" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/activity_otp.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/activity_sign_up.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/fragment_books.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/fragment_books_llist.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/fragment_discount.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/fragment_home.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/fragment_my_cart.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/fragment_my_profile.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/fragment_new_arrival.xml" value="0.2359375" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_books_cat.xml" value="0.24895833333333334" />
+        <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_books_sub_cat.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_electronics_home.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_home_auto_scroll.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_home_best_deals.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_home_cat.xml" value="0.25" />
+        <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_left_menu.xml" value="0.25" />
         <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_new_arrival_cat.xml" value="0.25" />
+        <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/item_spinner.xml" value="0.25" />
+        <entry key="..\:/Users/Vikash/Documents/vinod_ji/ShopOn/Pharma/app/src/main/res/layout/left_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

@@ -84,6 +84,34 @@
         <item>Work From Home</item>
     </string-array>
 
+    <string-array name="super_cat_home_spinner">
+        <item>All</item>
+        <item>Automotive, Real Estate &amp; Industrial</item>
+        <item>Bags &amp; Luggage</item>
+        <item>Beauty, Health &amp; Fmcg</item>
+        <item>Books</item>
+        <item>Breakfast</item>
+        <item>Brunch</item>
+        <item>Computers, Laptops &amp; Gaming</item>
+        <item>Dinner</item>
+        <item>Eateries</item>
+        <item>Gifts &amp; Sweets</item>
+        <item>GST</item>
+        <item>Hobbies &amp; E-Learning</item>
+        <item>Home &amp; Living</item>
+        <item>Jewellery &amp; Gold</item>
+        <item>Lunch</item>
+        <item>Mens Zone</item>
+        <item>Mobiles, Tablets &amp; Office Equipments</item>
+        <item>Non-Prescription</item>
+        <item>Prescription</item>
+        <item>Sports &amp; Fitness</item>
+        <item>Toys, Kids &amp; Babies</item>
+        <item>Tv, Audio, Cameras &amp; Appliances</item>
+        <item>Womens Zone</item>
+        <item>Work From Home</item>
+    </string-array>
+
     <!--DiscountFragment-->
     <string-array name="super_categories_discount">
         <item>All</item>

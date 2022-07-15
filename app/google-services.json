@@ -7,17 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:872519418361:android:6d99dc585ae4eb27543d28",
+        "mobilesdk_app_id": "1:872519418361:android:aaa0e4e08383cd68543d28",
         "android_client_info": {
-          "package_name": "com.pharma"
+          "package_name": "com.shoponn"
         }
       },
       "oauth_client": [
         {
-          "client_id": "872519418361-acm9q9u73etr4vuvo18hkdvlflpgoc3r.apps.googleusercontent.com",
+          "client_id": "872519418361-8or2k2tq9m81acpm2iq6ma9fmqeccr6g.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.pharma",
+            "package_name": "com.shoponn",
             "certificate_hash": "1ece0626285c37214ab7532ddaceefa7da09e9b8"
           }
         },
